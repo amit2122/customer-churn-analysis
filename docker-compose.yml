@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: customer-churn-app
+    ports:
+      - "8501:8501"
+    environment:
+      - PORT=8501
+    volumes:
+      - .:/app
+    command: streamlit run app/app.py --server.port=8501 --server.address=0.0.0.0
